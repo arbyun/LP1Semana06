@@ -7,6 +7,7 @@ namespace GameSix
         private string name;
         private float health;
         private float shield;
+        private static int powerUpCount;
 
         /// <summary> Constructor for the Foe class. Takes in a string to be the new name and sets the health to 100
         /// and shield to 0.</summary>
@@ -17,7 +18,12 @@ namespace GameSix
             health = 100;
             shield = 0;
         }
-        
+
+        static Foe()
+        {
+            powerUpCount = 0;
+        }
+
         public string GetName() => name;
 
         /// <summary> Takes a string as an argument and sets the name of the foe to that string.        
@@ -82,6 +88,10 @@ namespace GameSix
                     shield += value;
                     return;
             }
+
+            powerUpCount += 1;
         }
+
+        public static int GetPowerUpCount() => powerUpCount;
     }
 }
