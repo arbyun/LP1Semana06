@@ -1,4 +1,6 @@
-﻿namespace GameSix
+﻿using System;
+
+namespace GameSix
 {
     public class Foe
     {
@@ -17,7 +19,26 @@
         }
         
         public string GetName() => name;
-        public string SetName(string newname) => name = newname;
+
+        /// <summary> Takes a string as an argument and sets the name of the foe to that string.        
+        /// If there are spaces in the new name, they will be removed.
+        /// If no argument is given, or if it's empty, an ArgumentNullException will be thrown.</summary>
+        /// <param name="newname"> /// the name of the foe. </param>
+        /// <returns> The name of the foe.</returns>
+        public string SetName(string newname)
+        {
+            if (newname.Contains(" "))
+            {
+                newname = newname.Replace(" ", "");
+            }
+            else if (newname == "")
+            {
+                throw new ArgumentNullException(nameof(newname), "The name of the foe can't be empty!");
+            }
+            
+            return name = newname;
+        }
+        
         public float GetHealth() => health;
         public float GetShield() => shield;
 
