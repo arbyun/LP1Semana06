@@ -62,5 +62,26 @@ namespace GameSix
             }
         }
 
+        /// <summary> Takes in a PowerUp enum and a float value.        
+        /// The function then adds the value to the appropriate variable, depending on which PowerUp was
+        /// passed in.</summary>
+        /// <param name="power"> The powerup to use</param>
+        /// <param name="value"> /// this is the amount of health or shield that will be added to the player.
+        /// </param>
+        /// <returns> Void</returns>
+        public void PickupPowerUp(PowerUp power, float value)
+        {
+            if (value > 100) value = 100;
+            
+            switch (power)
+            {
+                case (PowerUp.Health):
+                    health += value;
+                    return;
+                case (PowerUp.Shield):
+                    shield += value;
+                    return;
+            }
+        }
     }
 }
