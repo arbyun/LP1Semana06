@@ -61,7 +61,10 @@ namespace GameSix
             ivern.TakeDamage(150);
             
             Console.WriteLine($"{ivern.GetName()} takes 150 damage! He tanks it, remaining with {ivern.GetShield()} of " +
-                              $"his shield. His remaining health is {ivern.GetHealth()}.");
+                              $"his shield. His remaining health is {ivern.GetHealth()}.\n\n");
+            
+            Console.WriteLine($"In total, {ivern.GetName()} has picked {ivern.GetPowerUpCount} power ups, and {kindred.GetName()} " +
+                              $"has picked {kindred.GetPowerUpCount} power ups.");
         }
     }
 }
